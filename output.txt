@@ -1,0 +1,21 @@
+VP is predicate
+"she was walking quickly to the mall"
+(ROOT (S (NP (PRP she)) (VP (VBD was) (VP (VBG walking) (ADVP (RB quickly)) (PP (TO to) (NP (DT the) (NN mall)))))))
+
+
+"he should wait before going swimming"
+(ROOT (S (NP (PRP he)) (VP (MD should) (VP (VB wait) (PP (IN before) (S (VP (VBG going) (NP (NN swimming)))))))))
+
+"those girls are not trying very hard";
+(ROOT (S (NP (DT those) (NNS girls)) (VP (VBP are) (RB not) (VP (VBG trying) (ADVP (RB very) (RB hard))))))
+
+VP is not predicate
+
+ "texting on his phone, the man swerved into a ditch";
+(ROOT (S (S (VP (VBG texting) (PP (IN on) (NP (PRP$ his) (NN phone))))) (, ,) (NP (DT the) (NN man)) (VP (VBD swerved) (PP (IN into) (NP (DT a) (NN ditch))))))
+
+"the small dog was reluctant to learn new things";
+(ROOT (S (NP (DT the) (JJ small) (NN dog)) (VP (VBD was) (ADJP (JJ reluctant) (S (VP (TO to) (VP (VB learn) (NP (JJ new) (NNS things)))))))))
+
+ "Finally, we can afford to buy a new house";
+ (ROOT (S (ADVP (RB Finally)) (, ,) (NP (PRP we)) (VP (MD can) (VP (VB afford) (S (VP (TO to) (VP (VB buy) (NP (DT a) (JJ new) (NN house)))))))))

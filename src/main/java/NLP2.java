@@ -34,7 +34,8 @@ public class NLP2 {
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
         // read some text in the text variable
         //String text = "Pick up that block";
-        String text = "\"I voted for Nader because he was most aligned with my values, \" she said.";
+        //String text = "";
+        String text = "Finally, we can afford to buy a new house";
         //String text = "In 1921, Einstein received the Nobel Prize for his original work on the photoelectric effect.";
         Annotation document = new Annotation(text);
         pipeline.annotate(document);
@@ -54,7 +55,11 @@ public class NLP2 {
                 System.out.println("word " + word + " ,pos: " + pos + " ,ne: " + ne);
             }
             //this is the parse tree of the current sentence
-//
+            Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+            System.out.println();
+            System.out.println(tree);
+
+
 
             SemanticGraph dependencies = sentence.get(SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation.class);
             System.out.println();
