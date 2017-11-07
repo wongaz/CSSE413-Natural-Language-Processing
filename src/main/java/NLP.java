@@ -90,13 +90,13 @@ public class NLP {
             // get root of parse graph
             IndexedWord root = dependencies.getFirstRoot();
             // type of root
-            String type = root.tag();
-            switch (type) {
-                case "VB": processVerbPhrase(dependencies, root); break;
-                case "NN": processNounPhrase(dependencies, root); break;
-                case "DT": processDeterminer(dependencies, root); break;
-                default: System.out.println("Cannot identify sentence structure.");
-            }
+//            String type = root.tag();
+//            switch (type) {
+//                case "VB": processVerbPhrase(dependencies, root); break;
+//                case "NN": processNounPhrase(dependencies, root); break;
+//                case "DT": processDeterminer(dependencies, root); break;
+//                default: System.out.println("Cannot identify sentence structure.");
+//            }
             // next step, need to identify further components of sentence
 
 
