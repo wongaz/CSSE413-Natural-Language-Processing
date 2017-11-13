@@ -28,25 +28,25 @@
 //    /**
 //     * @param args
 //     */
-//    public static void main(String[] args) {
-//
-//        Properties props = new Properties();
-//        props.put("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-////        props.put("annotators", "tokenize, ssplit, pos, lemma");
-//
-//
-//
-////  		StanfordCoreNLP coreNLP = new StanfordCoreNLP(props);
-////        File foo = new File("foo.txt");
-////        Collection<File> files = new ArrayList<File>();
-////        files.add(foo);
-////        try {
-////			coreNLP.processFiles(files);
-////		} catch (IOException e) {
-////			// TODO Auto-generated catch block
-////			e.printStackTrace();
-////		}
+//    public static void main(String[] args){
 ////
+//        Properties props=new Properties();
+//        props.put("annotators","tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+//        props.put("annotators","tokenize, ssplit, pos, lemma");
+//
+//
+//        StanfordCoreNLP coreNLP=new StanfordCoreNLP(props);
+//        File foo=new File("foo.txt");
+//        Collection<File> files=new ArrayList<File>();
+//        files.add(foo);
+//        try{
+//        coreNLP.processFiles(files);
+//        }catch(IOException e){
+//        // TODO Auto-generated catch block
+//        e.printStackTrace();
+//        }
+//        }
+//////
 //
 //        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 //        // read some text in the text variable

@@ -1,6 +1,8 @@
+import edu.stanford.nlp.ie.util.RelationTriple;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.IndexedWord;
+import edu.stanford.nlp.naturalli.NaturalLogicAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.semgraph.SemanticGraph;
@@ -11,6 +13,7 @@ import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.Pair;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 
@@ -33,9 +36,9 @@ public class NLP2 {
 
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
         // read some text in the text variable
-        //String text = "Pick up that block";
+        String text = "Pick up that block";
         //String text = "";
-        String text = "Finally, we can afford to buy a new house";
+        //String text = "Finally, we can afford to buy a new house";
         //String text = "In 1921, Einstein received the Nobel Prize for his original work on the photoelectric effect.";
         Annotation document = new Annotation(text);
         pipeline.annotate(document);
@@ -45,6 +48,15 @@ public class NLP2 {
         for(CoreMap sentence: sentences) {
             // traversing the words in the current sentence
             // a CoreLabel is a CoreMap with additional token-specific methods
+            Collection<RelationTriple> triples = sentence.get(NaturalLogicAnnotations.RelationTriplesAnnotation.class);
+            // Print the triples
+            System.out.println(triples);
+            for (RelationTriple triple : triples) {
+                System.out.println(triple.confidence + "\t" +
+                        triple.subjectLemmaGloss() + "\t" +
+                        triple.relationLemmaGloss() + "\t" +
+                        triple.objectLemmaGloss());
+            }
             for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
                 // this is the text of the token
                 String word = token.get(CoreAnnotations.TextAnnotation.class);
@@ -59,11 +71,21 @@ public class NLP2 {
             System.out.println();
             System.out.println(tree);
 
-
+            System.out.println("s");
 
             SemanticGraph dependencies = sentence.get(SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation.class);
             System.out.println();
-            System.out.println(dependencies);
+
+            System.out.println("\nList\n");
+
+            System.out.println(dependencies.toString(SemanticGraph.OutputFormat.LIST));
+            System.out.println(dependencies.toString(SemanticGraph.OutputFormat.READABLE));
+
+
+            System.out.println("\nTo String\n");
+
+
+            System.out.println(dependencies.toString());
 
             IndexedWord root = dependencies.getFirstRoot();
             // type of root
