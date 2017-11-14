@@ -9,6 +9,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.simple.Sentence;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.ie.util.RelationTriple;
+import org.tartarus.snowball.ext.EnglishStemmer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -114,10 +115,11 @@ public class NLP3 {
                             rel = m.mentionSpan;
                         }
                     }
+
                     outWriter.write(triple.confidence + "," +
-                            subj  + "," +
-                            rel  + "," +
-                            obj+"\n");
+                            subj.toLowerCase()  + "," +
+                            rel.toLowerCase()  + "," +
+                            obj.toLowerCase() +"\n");
                 }
             }
         }
